@@ -1,15 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
-import Signup from './components/Signup';
-
+import Recovery from './components/Recovery';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-      {/* <Signup /> */}
-    </div>
+    <Router>
+      <Routes>
+        {/* Automatically redirects from base URL to Login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+        
+        <Route path="/login" element={<Login />} />
+        <Route path="/recovery" element={<Recovery />} />
+      </Routes>
+    </Router>
   );
 }
 
